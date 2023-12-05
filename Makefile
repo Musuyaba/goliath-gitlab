@@ -54,5 +54,8 @@ purge: stop
 	@docker rm -v gitlab-postgresql >/dev/null
 	@docker volume rm $(shell docker volume ls -q -f name="^goliath")
 
+run:
+	@echo "Running all containters..."
+	@docker compose up --build
 logs:
 	@docker logs -f gitlab-demo
