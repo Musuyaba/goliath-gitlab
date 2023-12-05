@@ -52,6 +52,7 @@ purge: stop
 	@docker rm -v gitlab-demo >/dev/null
 	@docker rm -v gitlab-redis >/dev/null
 	@docker rm -v gitlab-postgresql >/dev/null
+	@docker volume rm $(shell docker volume ls -q -f name="^goliath")
 
 logs:
 	@docker logs -f gitlab-demo
